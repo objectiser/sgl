@@ -1,0 +1,65 @@
+
+
+8/8/10
+
+PurchasingBroker - request for quote and two quotes from suppliers
+Pre process registry and store, without process stack.
+Uses separate thread to send messages into process (e.g. supplier's quotes).
+
+100 iterations around 68ms - but this was asynchronous
+
+
+Now using local supplier, need to do timing difference - could not deploy one or both
+suppliers (or just comment out the code) and see the different when using the
+message listener.
+
+8/8/10
+Introduced a sychronous mechanism, so could time each process instance to completion.
+100 iterations in 89ms - invoking supplier processes
+100 iterations in 60ms - using message listener approach instead of supplier process
+
+
+9/8/10
+Tried adding process stack - but seemed like it would be inefficient creating list for each
+thread - so decided to create context object for each dispatch instead, but that lead to
+100 iterations in 145ms - invoking supplier processes
+
+so decided to use process execution stack, by storing local variable in synchronisation scope
+- but problem is that we need the process history to be able to decide when to use messaging
+rather than direct invoke.
+
+
+With a 40ms delay per message sent, no redirection (i.e. all messages sent):
+100 iterations in 8652ms
+
+With redirection (on the purchasing example, so the two Quote responses sent via ML):
+100 iterations in 4543ms
+
+
+
+
+Possibly try setting flag on process to indicate being invoked? But adding to collection does this
+although might need to be per thread.
+
+
+
+
+
+TODO:
+
+Then try adding the process instance stack in place of using threads to dispatch to the
+processes, to see how that impacts performance.
+
+Try tests with slight delay in ClientMessageHandler - although when using real messaging, this
+could be tested out again
+
+Then next step would be to provide a proper process registry, that can handle the
+'implements' concept.
+
+
+
+Can try:
+
+Removing message construct, and instead putting the source/destination id in the endpoint,
+and so passing the source and destination endpoints (with process id) in the message on the
+wire, but not necessarily in another wrapper.

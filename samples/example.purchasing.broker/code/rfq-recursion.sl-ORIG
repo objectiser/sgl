@@ -1,0 +1,91 @@
+namespace test;
+
+import rfqexample.User;
+import rfqexample.Supplier;
+
+requestForQuote(abstract User user) {
+	actor Broker broker;
+
+	user.rfq -> broker.rfq;
+
+	if (!broker.isValidProduct(broker.rfq.productCode)) {
+		transient InvalidProduct  broker.invProd=
+			new InvalidProduct();
+
+		// As user is abstract, we do not need to
+		// specify specific variable.
+		// TODO: Need a short hand for creating a
+		// transient value to send.
+		broker.invProd -> user;
+
+		(possibly broker.new InvalidProduct() -> user)?
+	} else {
+
+// ISSUE: Scope of variables - possibly should not be inline for now?
+		int broker.supplierCount=0;
+
+		contactSupplier: {
+
+			if (broker.supplierCount < broker.supplierList.length) {
+
+				// Create new supplier, but based on
+				// locating the appropriate implementation
+				// (as abstract) using the supplier id
+				abstract Supplier supplier=
+					new Supplier(suppliedId=sid);
+
+				broker.rfq -> supplier;
+
+				par {
+					broker.supplierCount++;
+
+					contactSupplier;
+				} and {
+
+					// quoteList is a list, so will automatically
+					// just add to end of list
+					// Introduces annotation on the interaction,
+					// in this case that a timeout of 20 seconds
+					// is applicable
+					supplier -> broker.quoteList, timeout=20000;
+				}
+			}
+		}
+
+// ISSUE - what if 'if' body has a wait state - then the actions after the 'if' statement
+// need to be in a separate state, and called with from the end of the 'if' body, or if
+// the 'if' condition is false
+
+		// Can't be transient, as is needed across event
+		// boundaries
+		broker.highestQuote=
+			broker.getHighestQuote();  // has access to quoteList
+
+		// Assumes quote has supplier id - otherwise could
+		// store composite object with quote and sid
+		if (broker.highestQuote != null) {
+
+			broker.highestQuote -> user;
+
+			// User has a choice - path triggered
+			// when associated variable at broker is
+			// populated
+			choice user -> broker {
+			acceptQuote:
+				abstract Supplier supplier=
+					new Supplier(suppliedId=sid);
+
+				broker.new PlaceOrder(broker.highestQuote.id)
+					-> supplier;
+
+				supplier -> broker.orderConfirmed;
+
+				broker.orderConfirmed -> user;
+				break;
+
+			cancelQuote:
+				break;
+			}
+		}
+	}
+}

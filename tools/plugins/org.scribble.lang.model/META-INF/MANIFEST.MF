@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Scribble Language Model
+Bundle-SymbolicName: org.scribble.lang.model
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.scribble.lang.model.osgi.Activator
+Bundle-Vendor: www.scribble.org
+Import-Package: org.osgi.framework,
+ org.osgi.util.tracker
+Export-Package: org.scribble.lang.model
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

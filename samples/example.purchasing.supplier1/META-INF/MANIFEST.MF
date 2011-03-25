@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Example Purchasing Supplier1
+Bundle-SymbolicName: example.purchasing.supplier1
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.scribble.runtime,
+ example.purchasing.data
+Bundle-ActivationPolicy: lazy
+Bundle-Activator: example.purchasing.supplier1.osgi.Activator
+Import-Package: org.osgi.framework
+Export-Package: example.purchasing.supplier1
+

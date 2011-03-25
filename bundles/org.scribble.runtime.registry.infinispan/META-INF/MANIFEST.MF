@@ -1,0 +1,27 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Scribble Runtime Registry Infinispan
+Bundle-SymbolicName: org.scribble.runtime.registry.infinispan
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.scribble.runtime.registry.infinispan.osgi.Activator
+Import-Package: javax.management,
+ javax.xml.bind,
+ javax.xml.transform,
+ javax.xml.transform.stream,
+ javax.xml.validation,
+ org.osgi.framework,
+ org.osgi.util.tracker,
+ org.xml.sax,
+ org.xml.sax.helpers
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.scribble.runtime
+Export-Package: org.scribble.runtime.registry.infinispan
+Bundle-ClassPath: lib/infinispan-core.jar,
+ .,
+ lib/jboss-transaction-api-1.0.1.GA.jar,
+ lib/marshalling-api-1.2.3.GA.jar,
+ lib/river-1.2.3.GA.jar,
+ lib/rhq-pluginAnnotations-1.4.0.B01.jar,
+ src/main/resources/,
+ lib/jgroups-2.10.0.GA.jar,
+ lib/jboss-common-core-2.2.14.GA.jar

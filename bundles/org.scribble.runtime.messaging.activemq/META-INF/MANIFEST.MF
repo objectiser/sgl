@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Scribble Runtime Messaging ActiveMQ
+Bundle-SymbolicName: org.scribble.runtime.messaging.activemq
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.scribble.runtime.messaging.activemq.osgi.Activator
+Import-Package: org.osgi.framework,
+ org.osgi.util.tracker
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.scribble.runtime
+Bundle-ClassPath: lib/activemq-all-5.4.1.jar,
+ .,
+ src/main/resources/
+Export-Package: org.scribble.runtime.messaging.activemq

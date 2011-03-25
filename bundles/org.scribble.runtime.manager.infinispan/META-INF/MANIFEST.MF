@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Scribble Runtime Process Manager Infinispan
+Bundle-SymbolicName: org.scribble.runtime.manager.infinispan
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.scribble.runtime.manager.infinispan.osgi.Activator
+Import-Package: javax.management,
+ javax.xml.transform,
+ javax.xml.transform.stream,
+ javax.xml.validation,
+ org.osgi.framework,
+ org.osgi.util.tracker,
+ org.xml.sax,
+ org.xml.sax.helpers
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.scribble.runtime,
+ org.scribble.infinispan
+Export-Package: org.scribble.runtime.manager.infinispan
+Bundle-ClassPath: .

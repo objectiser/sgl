@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<component name="purchasing-broker">
+	<implementation class="example.purchasing.broker.PurchasingBrokerProcessFactory"/>
+	<service>
+		<provide interface="org.scribble.runtime.ProcessFactory"/>
+	</service>
+</component>

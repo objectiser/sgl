@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Scribble Language Generator
+Bundle-SymbolicName: org.scribble.lang.generator
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.scribble.lang.generator.osgi.Activator
+Bundle-Vendor: www.scribble.org
+Import-Package: org.osgi.framework,
+ org.osgi.util.tracker
+Bundle-ClassPath: .
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.scribble.lang.model,
+ org.scribble.lang.parser,
+ org.scribble.common,
+ org.scribble.lang.projection
+Export-Package: org.scribble.lang.generator

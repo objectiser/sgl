@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Example Purchasing Client
+Bundle-SymbolicName: example.purchasing.client
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.scribble.runtime,
+ example.purchasing.data,
+ example.purchasing.broker,
+ org.scribble.runtime.manager.inmemory,
+ org.scribble.runtime.manager.infinispan,
+ example.purchasing.supplier1,
+ example.purchasing.supplier2,
+ org.scribble.runtime.messaging.activemq,
+ org.scribble.runtime.registry.inmemory,
+ org.scribble.runtime.registry.infinispan
+Bundle-ActivationPolicy: lazy
+Bundle-Activator: example.purchasing.client.osgi.Activator
+Import-Package: org.osgi.framework
+

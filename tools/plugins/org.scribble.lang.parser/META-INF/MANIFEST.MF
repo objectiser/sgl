@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Scribble Language Parser
+Bundle-SymbolicName: org.scribble.lang.parser
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.scribble.lang.parser.osgi.Activator
+Bundle-Vendor: www.scribble.org
+Import-Package: org.osgi.framework,
+ org.osgi.util.tracker
+Bundle-ClassPath: .,
+ lib/antlr-3.2.jar,
+ src/main/resources/lib/antlr-3.2.jar
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: org.scribble.lang.parser,
+ org.scribble.lang.parser.antlr
+Require-Bundle: org.scribble.common,
+ org.scribble.lang.model

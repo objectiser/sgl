@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Scribble Language Eclipse Integration
+Bundle-SymbolicName: org.scribble.lang.eclipse;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.scribble.lang.eclipse.osgi.Activator
+Bundle-Vendor: www.scribble.org
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.core.resources,
+ org.eclipse.jdt.core,
+ org.scribble.lang.model,
+ org.scribble.lang.parser,
+ org.scribble.lang.generator,
+ org.scribble.common,
+ org.scribble.lang.projection
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy

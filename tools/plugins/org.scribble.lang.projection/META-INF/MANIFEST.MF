@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Scribble Language Projection
+Bundle-SymbolicName: org.scribble.lang.projection
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.scribble.lang.projection.osgi.Activator
+Bundle-Vendor: www.scribble.org
+Import-Package: org.osgi.framework,
+ org.osgi.util.tracker
+Bundle-ClassPath: .
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: org.scribble.lang.projection
+Require-Bundle: org.scribble.common,
+ org.scribble.lang.model,
+ org.scribble.lang.parser

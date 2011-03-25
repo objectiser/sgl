@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Scribble Runtime Core
+Bundle-SymbolicName: org.scribble.runtime
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.scribble.runtime.osgi.Activator
+Bundle-Vendor: www.scribble.org
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: org.osgi.framework
+Export-Package: org.scribble.runtime,
+ org.scribble.runtime.manager,
+ org.scribble.runtime.messaging,
+ org.scribble.runtime.registry

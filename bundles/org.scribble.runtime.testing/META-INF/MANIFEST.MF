@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Scribble Runtime Testing Support
+Bundle-SymbolicName: org.scribble.runtime.testing
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.scribble.runtime.testing.osgi.Activator
+Bundle-Vendor: www.scribble.org
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: org.osgi.framework
+Export-Package: org.scribble.runtime.testing
+Require-Bundle: org.scribble.runtime,
+ org.scribble.runtime.manager.inmemory,
+ org.scribble.runtime.registry.inmemory

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         id="org.scribble.lang.eclipse.startup"
+         name="Eclipse Integration Startup"
+         point="org.eclipse.ui.startup">
+   </extension>
+   <extension point="org.eclipse.jdt.core.classpathContainerInitializer">
+         <classpathContainerInitializer id="org.scribble.lang.SCRIBBLE_LANGUAGE_CONTAINER"
+				class="org.scribble.lang.eclipse.osgi.SLClasspathContainerInitializer" />
+   </extension>
+
+</plugin>
